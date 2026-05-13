@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+:root {
+  --hs-blue: #2944ff;
+  --hs-magenta: #e100ff;
+  --hs-mint: #d4f7f2;
+}
+
+@theme inline {
+  --font-sans: var(--font-hs-body);
+}
+
+body {
+  margin: 0;
+}
