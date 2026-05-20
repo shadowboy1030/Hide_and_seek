@@ -1,11 +1,11 @@
 import { motion } from "motion/react";
-import { ArrowLeft, Clock, MapPin } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Clock, MapPin } from "lucide-react";
 import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useI18n } from "../i18n";
 import { getCourseDetail } from "./courses";
 import { ImageWithFallback } from "./ImageWithFallback";
-import { siteCopy } from "./siteCopy";
+import { siteCopy, TOUR_APPLICATION_FORM_URL } from "./siteCopy";
 
 export function CourseDetail() {
   const { courseId } = useParams<{ courseId: string }>();
@@ -142,11 +142,21 @@ export function CourseDetail() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-3xl bg-gray-900 p-10 text-center text-white"
+              className="rounded-3xl bg-[#121826] p-10 text-center text-white md:p-12"
             >
               <p className="text-2xl leading-relaxed md:text-3xl" style={{ fontWeight: 600 }}>
                 {course.closingText}
               </p>
+              <a
+                href={TOUR_APPLICATION_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/10 px-8 py-4 text-base text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/20 md:text-lg"
+                style={{ fontWeight: 600 }}
+              >
+                {c.courseDetail.applyCta}
+                <ArrowUpRight size={20} className="opacity-90" />
+              </a>
             </motion.div>
           </motion.div>
         </div>

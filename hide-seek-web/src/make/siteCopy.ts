@@ -55,6 +55,10 @@ const footer = {
 export const INSTAGRAM_REEL_URL =
   "https://www.instagram.com/reel/DYR5bGvSdQE/?utm_source=ig_web_copy_link";
 
+/** Local tour application (Google Form) */
+export const TOUR_APPLICATION_FORM_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLScS1vTmXHPfC16Ofe1zkZw18wgya-usV6M8fKgsLvGOjGOl9Q/viewform?usp=header";
+
 const home = {
   heroLine: tx("나만의 한국을 찾다", "FIND YOUR OWN KOREA", "寻找属于你的韩国", "自分だけの韓国を見つける"),
   heroSub: tx(
@@ -240,6 +244,7 @@ const courseDetail = {
   placesTitle: tx("방문 장소", "Places You'll Visit", "参观地点", "訪問スポット"),
   highlightsTitle: tx("하이라이트", "Highlights", "亮点", "ハイライト"),
   locationsLabel: tx("개 장소", "locations", "个地点", "箇所"),
+  applyCta: tx("신청하기", "Apply", "立即申请", "申し込む"),
 };
 
 export function siteCopy(lang: Language) {
@@ -317,6 +322,7 @@ export function siteCopy(lang: Language) {
       placesTitle: pick(courseDetail.placesTitle, lang),
       highlightsTitle: pick(courseDetail.highlightsTitle, lang),
       locationsLabel: pick(courseDetail.locationsLabel, lang),
+      applyCta: pick(courseDetail.applyCta, lang),
     },
     instagram: {
       navLabel: pick(instagram.navLabel, lang),
