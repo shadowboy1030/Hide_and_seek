@@ -2,13 +2,15 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useI18n } from "../i18n";
+import { InstagramButton } from "./InstagramLink";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { siteCopy } from "./siteCopy";
 
 export function Root() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { language, setLanguage } = useI18n();
+  const { language } = useI18n();
   const c = useMemo(() => siteCopy(language), [language]);
 
   useEffect(() => {
@@ -39,25 +41,13 @@ export function Root() {
             </Link>
 
             <div className="flex items-center gap-2 lg:gap-4">
-              <div className="hidden items-center gap-1 rounded-full border border-gray-200 bg-gray-50 p-0.5 sm:flex">
-                <button
-                  type="button"
-                  onClick={() => setLanguage("ko")}
-                  className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                    language === "ko" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-800"
-                  }`}
-                >
-                  한국어
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("en")}
-                  className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                    language === "en" ? "bg-white text-gray-900 shadow-sm" : "text-gray-500 hover:text-gray-800"
-                  }`}
-                >
-                  EN
-                </button>
+              <InstagramButton
+                label={c.instagram.navLabel}
+                variant="nav"
+                className="hidden sm:inline-flex"
+              />
+              <div className="hidden sm:flex">
+                <LanguageSwitcher />
               </div>
 
               <button
@@ -87,26 +77,7 @@ export function Root() {
         {isMenuOpen ? (
           <div className="border-t border-gray-200 bg-white lg:hidden">
             <div className="space-y-3 px-5 py-4">
-              <div className="mb-3 flex gap-2">
-                <button
-                  type="button"
-                  onClick={() => setLanguage("ko")}
-                  className={`flex-1 rounded-full border px-3 py-2 text-sm font-semibold ${
-                    language === "ko" ? "border-primary bg-primary/10 text-primary" : "border-gray-200 text-gray-600"
-                  }`}
-                >
-                  한국어
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setLanguage("en")}
-                  className={`flex-1 rounded-full border px-3 py-2 text-sm font-semibold ${
-                    language === "en" ? "border-primary bg-primary/10 text-primary" : "border-gray-200 text-gray-600"
-                  }`}
-                >
-                  EN
-                </button>
-              </div>
+              <LanguageSwitcher layout="wide" />
               <Link to="/" className="block text-[15px] text-gray-700 transition-colors hover:text-gray-900" style={{ fontWeight: 500 }}>
                 {c.nav.home}
               </Link>
@@ -116,6 +87,7 @@ export function Root() {
               <Link to="/about" className="block text-[15px] text-gray-700 transition-colors hover:text-gray-900" style={{ fontWeight: 500 }}>
                 {c.nav.about}
               </Link>
+              <InstagramButton label={c.instagram.cta} variant="gradient" className="mt-2 w-full" />
             </div>
           </div>
         ) : null}
@@ -152,7 +124,8 @@ export function Root() {
               <h4 className="mb-3 text-sm" style={{ fontWeight: 600 }}>
                 {c.footer.connect}
               </h4>
-              <p className="text-sm text-gray-600">{c.footer.connectBody}</p>
+              <p className="mb-4 text-sm leading-relaxed text-gray-600">{c.footer.connectBody}</p>
+              <InstagramButton label={c.instagram.bannerCta} variant="gradient" className="text-sm" />
             </div>
           </div>
           <div className="mt-12 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">{c.footer.rights}</div>

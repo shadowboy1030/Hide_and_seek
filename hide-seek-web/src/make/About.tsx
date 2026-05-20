@@ -1,15 +1,17 @@
 import { motion } from "motion/react";
-import { Camera, Coffee, Palette } from "lucide-react";
+import { Camera, Coffee, Home } from "lucide-react";
 import { useMemo } from "react";
 import { useI18n } from "../i18n";
-import introImg from "../assets/about/intro.png";
-import guide1Img from "../assets/about/guide-1.png";
-import guide2Img from "../assets/about/guide-2.png";
-import guide3Img from "../assets/about/guide-3.png";
+/** Guide portraits — canonical files under `src/assets/guides/`. Order: 남동진 → 박재우 → 인연찬. */
+import introImg from "../assets/guides/nam-dongjin.png";
+import guide1Img from "../assets/guides/nam-dongjin.png";
+import guide2Img from "../assets/guides/park-jaewoo.png";
+import guide3Img from "../assets/guides/in-yeonchan.png";
 import { ImageWithFallback } from "./ImageWithFallback";
+import { InstagramBanner } from "./InstagramLink";
 import { siteCopy } from "./siteCopy";
 
-const guideIcons = [Coffee, Camera, Palette] as const;
+const guideIcons = [Coffee, Home, Camera] as const;
 const guidePhotos = [guide1Img, guide2Img, guide3Img] as const;
 
 export function About() {
@@ -40,6 +42,10 @@ export function About() {
             {c.about.title}
           </h1>
           <p className="mb-10 text-xl leading-relaxed text-gray-600 md:text-2xl">{c.about.lead}</p>
+
+          <p className="mb-4 text-2xl tracking-tight text-gray-900 md:text-3xl" style={{ fontWeight: 800 }}>
+            {c.about.representativeLabel}
+          </p>
 
           <div className="mx-auto max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-md">
             <div className="aspect-[3/4] w-full">
@@ -126,6 +132,13 @@ export function About() {
           </div>
         </div>
       </section>
+
+      <InstagramBanner
+        className="bg-gray-50 py-16"
+        title={c.instagram.bannerTitle}
+        body={c.instagram.bannerBody}
+        cta={c.instagram.bannerCta}
+      />
 
       <section className="px-5 py-24 lg:px-6">
         <motion.div

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
 import { getCourseList } from "./courses";
 import { ImageWithFallback } from "./ImageWithFallback";
+import { InstagramBanner } from "./InstagramLink";
 import { siteCopy } from "./siteCopy";
 
 export function Experiences() {
@@ -83,6 +84,13 @@ export function Experiences() {
           </div>
         </div>
       </section>
+
+      <InstagramBanner
+        className="pb-20"
+        title={c.instagram.bannerTitle}
+        body={c.instagram.bannerBody}
+        cta={c.instagram.bannerCta}
+      />
     </div>
   );
 }

@@ -8,7 +8,7 @@
 - Tailwind CSS v4 (`@tailwindcss/vite`)
 - React Router 7 (SPA)
 - Motion, Lucide React
-- 한국어 / English (`src/i18n.tsx`)
+- 한국어 / English / 中文 / 日本語 (`src/i18n.tsx`)
 
 ## Routes
 

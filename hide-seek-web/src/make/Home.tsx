@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
 import { ImageWithFallback } from "./ImageWithFallback";
+import { InstagramBanner, InstagramButton } from "./InstagramLink";
 import { siteCopy } from "./siteCopy";
 
 export function Home() {
@@ -69,14 +70,17 @@ export function Home() {
           <p className="mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-gray-700 md:text-xl" style={{ fontWeight: 500 }}>
             {c.home.heroSub}
           </p>
-          <Link
-            to="/experiences"
-            className="bg-primary hover:bg-blue-600 inline-flex items-center gap-2 rounded-full px-8 py-4 text-white shadow-lg transition-all hover:shadow-xl"
-            style={{ fontWeight: 600 }}
-          >
-            {c.home.cta}
-            <ArrowRight size={20} />
-          </Link>
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              to="/experiences"
+              className="bg-primary hover:bg-blue-600 inline-flex items-center gap-2 rounded-full px-8 py-4 text-white shadow-lg transition-all hover:shadow-xl"
+              style={{ fontWeight: 600 }}
+            >
+              {c.home.cta}
+              <ArrowRight size={20} />
+            </Link>
+            <InstagramButton label={c.instagram.cta} variant="outline" />
+          </div>
         </motion.div>
       </section>
 
@@ -179,6 +183,13 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      <InstagramBanner
+        className="py-12"
+        title={c.instagram.bannerTitle}
+        body={c.instagram.bannerBody}
+        cta={c.instagram.bannerCta}
+      />
 
       <section className="px-5 py-24 lg:px-6">
         <motion.div

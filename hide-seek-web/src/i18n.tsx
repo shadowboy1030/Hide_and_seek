@@ -1,6 +1,8 @@
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { htmlLang, isLanguage, type Language } from "./i18n/config";
 
-export type Language = "ko" | "en";
+export type { Language } from "./i18n/config";
+export { LANGUAGE_OPTIONS, LANGUAGES } from "./i18n/config";
 
 type I18nContextValue = {
   language: Language;
@@ -14,13 +16,14 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = window.localStorage.getItem("hide-seek-language");
-    if (saved === "ko" || saved === "en") {
+    if (isLanguage(saved)) {
       setLanguage(saved);
     }
   }, []);
 
   useEffect(() => {
     window.localStorage.setItem("hide-seek-language", language);
+    document.documentElement.lang = htmlLang(language);
   }, [language]);
 
   const value = useMemo(() => ({ language, setLanguage }), [language]);
