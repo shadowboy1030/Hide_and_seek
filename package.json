@@ -2,5 +2,5 @@
   "name": "hide-and-seek-workspace",
   "private": true,
   "version": "0.0.0",
-  "description": "Open move-web or hide-seek-web and run npm scripts from that folder."
+  "description": "Run npm scripts from hide-seek-web/ (see README)."
 }
