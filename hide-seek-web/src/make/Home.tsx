@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n";
 import { ImageWithFallback } from "./ImageWithFallback";
-import { InstagramBanner, InstagramButton } from "./InstagramLink";
+import { FacebookButton, InstagramButton, SocialBanner, SocialLinkRow } from "./SocialLink";
 import { siteCopy } from "./siteCopy";
 
 export function Home() {
@@ -79,7 +79,10 @@ export function Home() {
               {c.home.cta}
               <ArrowRight size={20} />
             </Link>
-            <InstagramButton label={c.instagram.cta} variant="outline" />
+            <SocialLinkRow>
+              <FacebookButton label={c.facebook.cta} variant="outline" />
+              <InstagramButton label={c.instagram.cta} variant="gradient" />
+            </SocialLinkRow>
           </div>
         </motion.div>
       </section>
@@ -184,11 +187,13 @@ export function Home() {
         </div>
       </section>
 
-      <InstagramBanner
+      <SocialBanner
         className="py-12"
-        title={c.instagram.bannerTitle}
-        body={c.instagram.bannerBody}
-        cta={c.instagram.bannerCta}
+        theme="facebook"
+        title={c.facebook.bannerTitle}
+        body={c.facebook.bannerBody}
+        instagramCta={c.instagram.bannerCta}
+        facebookCta={c.facebook.bannerCta}
       />
 
       <section className="px-5 py-24 lg:px-6">

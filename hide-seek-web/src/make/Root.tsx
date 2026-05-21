@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { useI18n } from "../i18n";
-import { InstagramButton } from "./InstagramLink";
+import { FacebookButton, InstagramButton, SocialLinkRow, SocialNavButtons } from "./SocialLink";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { siteCopy } from "./siteCopy";
 
@@ -41,10 +41,10 @@ export function Root() {
             </Link>
 
             <div className="flex items-center gap-2 lg:gap-4">
-              <InstagramButton
-                label={c.instagram.navLabel}
-                variant="nav"
-                className="hidden sm:inline-flex"
+              <SocialNavButtons
+                instagramLabel={c.instagram.navLabel}
+                facebookLabel={c.facebook.navLabel}
+                className="hidden sm:flex"
               />
               <div className="hidden sm:flex">
                 <LanguageSwitcher />
@@ -87,7 +87,10 @@ export function Root() {
               <Link to="/about" className="block text-[15px] text-gray-700 transition-colors hover:text-gray-900" style={{ fontWeight: 500 }}>
                 {c.nav.about}
               </Link>
-              <InstagramButton label={c.instagram.cta} variant="gradient" className="mt-2 w-full" />
+              <SocialLinkRow className="mt-2 w-full flex-col sm:flex-row">
+                <FacebookButton label={c.facebook.cta} variant="gradient" className="w-full sm:flex-1" />
+                <InstagramButton label={c.instagram.cta} variant="gradient" className="w-full sm:flex-1" />
+              </SocialLinkRow>
             </div>
           </div>
         ) : null}
@@ -125,7 +128,10 @@ export function Root() {
                 {c.footer.connect}
               </h4>
               <p className="mb-4 text-sm leading-relaxed text-gray-600">{c.footer.connectBody}</p>
-              <InstagramButton label={c.instagram.bannerCta} variant="gradient" className="text-sm" />
+              <SocialLinkRow className="justify-start">
+                <FacebookButton label={c.facebook.bannerCta} variant="gradient" className="text-sm" />
+                <InstagramButton label={c.instagram.bannerCta} variant="gradient" className="text-sm" />
+              </SocialLinkRow>
             </div>
           </div>
           <div className="mt-12 border-t border-gray-200 pt-8 text-center text-sm text-gray-500">{c.footer.rights}</div>

@@ -8,7 +8,7 @@ import guide1Img from "../assets/guides/nam-dongjin.png";
 import guide2Img from "../assets/guides/park-jaewoo.png";
 import guide3Img from "../assets/guides/in-yeonchan.png";
 import { ImageWithFallback } from "./ImageWithFallback";
-import { InstagramBanner } from "./InstagramLink";
+import { SocialBanner } from "./SocialLink";
 import { siteCopy } from "./siteCopy";
 
 const guideIcons = [Coffee, Home, Camera] as const;
@@ -133,11 +133,13 @@ export function About() {
         </div>
       </section>
 
-      <InstagramBanner
+      <SocialBanner
         className="bg-gray-50 py-16"
-        title={c.instagram.bannerTitle}
-        body={c.instagram.bannerBody}
-        cta={c.instagram.bannerCta}
+        theme="facebook"
+        title={c.facebook.bannerTitle}
+        body={c.facebook.bannerBody}
+        instagramCta={c.instagram.bannerCta}
+        facebookCta={c.facebook.bannerCta}
       />
 
       <section className="px-5 py-24 lg:px-6">

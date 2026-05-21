@@ -26,10 +26,28 @@ const instagram = {
   ),
   bannerCta: tx("릴 보러 가기", "Watch the reel", "观看 Reels", "リールを見る"),
   connectBody: tx(
-    "인스타그램에서 로컬 투어 현장과 숨은 명소를 만나보세요.",
-    "Follow us on Instagram for tour highlights and hidden Seoul spots.",
-    "在 Instagram 关注本地导览精彩瞬间与隐秘景点。",
-    "Instagramでツアーの現場と隠れた名所をチェックしましょう。",
+    "인스타그램과 페이스북에서 로컬 투어 소식과 숨은 명소를 만나보세요.",
+    "Follow us on Instagram and Facebook for tour highlights and hidden Seoul spots.",
+    "在 Instagram 与 Facebook 关注本地导览动态与隐秘景点。",
+    "InstagramとFacebookでツアーの現場と隠れた名所をチェックしましょう。",
+  ),
+};
+
+const facebook = {
+  navLabel: tx("페이스북", "Facebook", "Facebook", "Facebook"),
+  cta: tx("페이스북 그룹 참여", "Join Facebook Group", "加入 Facebook 群组", "Facebookグループに参加"),
+  bannerCta: tx("그룹 보러 가기", "Visit the group", "前往群组", "グループを見る"),
+  bannerTitle: tx(
+    "서울의 순간, 페이스북에서",
+    "Seoul moments on Facebook",
+    "首尔瞬间，尽在 Facebook",
+    "ソウルの瞬間をFacebookで",
+  ),
+  bannerBody: tx(
+    "로컬 투어 소식과 숨은 서울 이야기를 페이스북 그룹에서 가장 먼저 만나보세요. HIDE&SEEK 커뮤니티에 참여해 보세요.",
+    "Join our Facebook group for local tour updates, hidden Seoul stories, and the HIDE&SEEK community.",
+    "在 Facebook 群组第一时间获取本地导览动态、隐秘首尔故事，加入 HIDE&SEEK 社区。",
+    "Facebookグループでローカルツアーの最新情報と隠れたソウルの物語、HIDE&SEEKコミュニティに参加しましょう。",
   ),
 };
 
@@ -54,6 +72,10 @@ const footer = {
 /** Official Instagram reel */
 export const INSTAGRAM_REEL_URL =
   "https://www.instagram.com/reel/DYR5bGvSdQE/?utm_source=ig_web_copy_link";
+
+/** Facebook community group */
+export const FACEBOOK_GROUP_URL =
+  "https://www.facebook.com/groups/307426043461393/?ref=share&mibextid=NSMWBT";
 
 /** Local tour application (Google Form) */
 export const TOUR_APPLICATION_FORM_URL =
@@ -330,6 +352,13 @@ export function siteCopy(lang: Language) {
       bannerTitle: pick(instagram.bannerTitle, lang),
       bannerBody: pick(instagram.bannerBody, lang),
       bannerCta: pick(instagram.bannerCta, lang),
+    },
+    facebook: {
+      navLabel: pick(facebook.navLabel, lang),
+      cta: pick(facebook.cta, lang),
+      bannerCta: pick(facebook.bannerCta, lang),
+      bannerTitle: pick(facebook.bannerTitle, lang),
+      bannerBody: pick(facebook.bannerBody, lang),
     },
   };
 }
